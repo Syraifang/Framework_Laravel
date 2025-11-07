@@ -27,4 +27,13 @@ class SiteController extends Controller
     {
         return view('site.login');
     }
+        public function cekKoneksi()
+    {
+        try {
+            \DB::connection()->getPdo();
+            return 'Koneksi ke database berhasil';
+        } catch (\Exception $e) {
+            return 'Koneksi ke database gagal' . $e->getMessage();
+        }
+    }
 }
