@@ -9,7 +9,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('site.home');
+        return view('site.beranda');
     }
     public function layanan()
     {
@@ -22,10 +22,6 @@ class SiteController extends Controller
     public function VisiMisi()
     {
         return view('site.visimisi');
-    }
-    public function login()
-    {
-        return view('site.login');
     }
         public function cekKoneksi()
     {

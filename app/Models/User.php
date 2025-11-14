@@ -33,4 +33,17 @@ class User extends Authenticatable
     {
         return $this->hasOne(Pemilik::class, 'iduser', 'iduser');
     }
+    public function roles()
+    {
+        return $this->belongsToMany(
+            Role::class,
+            'role_user',
+            'iduser',
+            'idrole'
+        )->withPivot('status');
+    }
+    public function roleUser()
+    {
+        return $this->hasMany(RoleUser::class, 'iduser', 'iduser');
+    }
 }

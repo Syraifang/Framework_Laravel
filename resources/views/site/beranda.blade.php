@@ -17,7 +17,7 @@
 <body>
 
 <nav>
-    <a href="/home">Home</a>
+    <a href="/">Home</a>
     <a href="/layanan">Layanan</a>
     <a href="/struktur-organisasi">Struktur Organisasi</a>
     <a href="/visi-misi">Visi Misi</a>
