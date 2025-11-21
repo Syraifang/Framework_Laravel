@@ -9,6 +9,8 @@ class RoleUser extends Model
     protected $table = 'role_user';
     protected $primaryKey = 'idrole_user';
     public $timestamps = false;
+
+    protected $fillable = ['iduser', 'idrole', 'status'];
     public function role()
     {
         return $this->belongsTo(Role::class, 'idrole', 'idrole');
