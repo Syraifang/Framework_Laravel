@@ -6,17 +6,34 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Tambah Jenis Hewan</div>
+
                 <div class="card-body">
+                    @if (session('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+
                     <form action="{{ route('admin.jenis-hewan.store') }}" method="POST">
                         @csrf
-                        
-                        <div class="mb-3">
-                            <label>Nama Jenis Hewan</label>
-                            <input type="text" name="nama_jenis_hewan" class="form-control" required placeholder="Contoh: Kucing, Anjing">
+
+                        <div class="form-group mb-3">
+                            <label for="nama_jenis_hewan">Nama Jenis Hewan</label>
+                            
+                            <input type="text" 
+                                   class="form-control @error('nama_jenis_hewan') is-invalid @enderror" 
+                                   id="nama_jenis_hewan" 
+                                   name="nama_jenis_hewan" 
+                                   value="{{ old('nama_jenis_hewan') }}" 
+                                   placeholder="Contoh: Kucing Anggora">
+
+                            @error('nama_jenis_hewan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                        <a href="{{ route('admin.jenis-hewan.index') }}" class="btn btn-secondary">Batal</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('admin.jenis-hewan.index') }}" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
